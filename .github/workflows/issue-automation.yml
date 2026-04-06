@@ -8,6 +8,16 @@ jobs:
   issue-handler:
     runs-on: ubuntu-latest
     steps:
+      - name: Scan for Hardcoded Passwords
+        run: |
+          echo "Scanning for hardcoded passwords..."
+          
+          if grep -r "password" .; then
+            echo "Hardcoded password detected!"
+            exit 1
+          else
+            echo "No hardcoded passwords found."
+          fi
       - name: Display Issue Event
         run: echo "An issue event has been triggered!"
 
