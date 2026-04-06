@@ -1,6 +1,6 @@
 const dbConfig = {
     username: "admin",
-    password: "mySuperSecret123",
+    password: process.env.DB_PASSWORD,
     host: "localhost"
 };
 
